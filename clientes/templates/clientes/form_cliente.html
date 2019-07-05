@@ -1,0 +1,45 @@
+{% extends "clientes/base.html" %}
+{% load meus_filtros %}
+{% block titulo %}
+Cadastro de clientes
+{% endblock titulo %}
+
+{% block conteudo %}
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.nome.errors }}
+            <label>Nome: </label>
+            {{ form.nome|addclass:'form-control' }}
+
+        </div>
+
+        <div class="form-group">
+            {{ form.sexo.errors }}
+            <label>Sexo: </label>
+            {{ form.sexo|addclass:'form-control' }}
+        </div>
+
+        <div class="form-group">
+            {{ form.data_nascimento.errors }}
+            <label>Data de nascimento: </label>
+            <input type="date" name="data_nascimento" class="form-control" required="" id="id_data_nascimento">
+        </div>
+
+        <div class="form-group">
+            {{ form.email.errors }}
+            <label>Email: </label>
+            {{ form.email|addclass:'form-control' }}
+        </div>
+
+        <div class="form-group">
+            {{ form.endereco.errors }}
+            <label>endereco: </label>
+            {{ form.endereco|addclass:'form-control'}}
+        </div>
+
+        <div class="form-group">
+            <input type="submit" name="Cadastrar">
+        </div>
+    </form>
+{% endblock conteudo %}
